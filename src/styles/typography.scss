@@ -1,0 +1,372 @@
+/* Display */
+@mixin display-normal {
+  font-size: 26px;
+  line-height: 36px;
+}
+
+@mixin display-normal-bold {
+  font-size: 26px;
+  line-height: 36px;
+  font-weight: 700;
+}
+
+@mixin display-normal-semibold {
+  font-size: 26px;
+  line-height: 36px;
+  font-weight: 600;
+}
+
+@mixin display-normal-medium {
+  font-size: 26px;
+  line-height: 36px;
+  font-weight: 500;
+}
+
+@mixin display-small {
+  font-size: 22px;
+  line-height: 36px;
+}
+
+@mixin display-small-bold {
+  font-size: 22px;
+  line-height: 36px;
+  font-weight: 700;
+}
+
+@mixin display-small-semibold {
+  font-size: 22px;
+  line-height: 36px;
+  font-weight: 600;
+}
+
+@mixin display-small-medium {
+  font-size: 22px;
+  line-height: 36px;
+  font-weight: 500;
+}
+
+/* Title */
+@mixin title-large {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+@mixin title-large-bold {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 700;
+}
+
+@mixin title-large-semibold {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+@mixin title-large-medium {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+@mixin title-normal {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin title-normal-bold {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+@mixin title-normal-semibold {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+@mixin title-normal-medium {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+@mixin title-small {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin title-small-bold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@mixin title-small-semibold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+@mixin title-small-medium {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+/* Body */
+@mixin body-large-list {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin body-large-list-bold {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+@mixin body-large-list-semibold {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+@mixin body-large-list-medium {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+@mixin body-large {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin body-large-bold {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+@mixin body-large-semibold {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+@mixin body-large-medium {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+@mixin body-normal {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin body-normal-bold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@mixin body-normal-semibold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+@mixin body-normal-medium {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+@mixin body-small {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+@mixin body-small-bold {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+@mixin body-small-semibold {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+@mixin body-small-medium {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+/* Button */
+@mixin button-large {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+@mixin button-large-bold {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+}
+
+@mixin button-large-semibold {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+@mixin button-large-medium {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+@mixin button-normal {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin button-normal-bold {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+@mixin button-normal-semibold {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+@mixin button-normal-medium {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+@mixin button-small {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin button-small-bold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@mixin button-small-semibold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+@mixin button-small-medium {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+/* Label */
+@mixin label-large {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin label-large-bold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@mixin label-large-semibold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+@mixin label-large-medium {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+@mixin label-normal {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+@mixin label-normal-bold {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+@mixin label-normal-semibold {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+@mixin label-normal-medium {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+@mixin label-small {
+  font-size: 11px;
+  line-height: 16px;
+}
+
+@mixin label-small-bold {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+@mixin label-small-semibold {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+@mixin label-small-medium {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+@mixin label-xsmall {
+  font-size: 11px;
+  line-height: 16px;
+}
+
+@mixin label-xsmall-bold {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+@mixin label-xsmall-semibold {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+@mixin label-xsmall-medium {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+}
