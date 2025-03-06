@@ -20,9 +20,6 @@ const svgoConfig: Config = {
           removeUselessDefs: false,
           removeHiddenElems: false,
           removeEmptyContainers: false,
-          // 스타일 속성 보존
-          // inlineStyles: true,
-          // minifyStyles: true,
           // 배경 관련 요소 보존
           mergePaths: false,
           convertShapeToPath: false,
