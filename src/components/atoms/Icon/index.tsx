@@ -24,7 +24,6 @@ const Icon = forwardRef<SVGSVGElement, IconProps>(
     return (
       <svg
         fill={props.fill}
-        stroke="white"
         ref={ref}
         className={clsx(className)}
         width={width}
