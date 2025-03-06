@@ -1,0 +1,135 @@
+.container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: fit-content;
+  border: 0 solid transparent;
+  gap: 2px;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  width: 357px;
+  height: 58px;
+  border-radius: 30px;
+
+  @include button-large-semibold;
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.loading {
+    .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .text {
+      visibility: hidden;
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.type-primary {
+    &.color-default {
+      color: var(--text-primary);
+      background-color: var(--button-primary_default);
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--button-primary_pressed);
+      }
+    }
+
+    &.disabled {
+      color: var(--text-secondary);
+    }
+  }
+
+  &.type-secondary {
+    &.color-default {
+      color: var(--text-primary);
+      background-color: var(--button-secondary_default);
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--button-secondary_pressed);
+        color: var(--text-secondary);
+      }
+    }
+
+    &.disabled {
+      color: var(--text-secondary);
+    }
+  }
+
+  &.type-bottom_sheet {
+    border-radius: 0;
+    &.color-default {
+      color: var(--text-primary);
+      background-color: var(--button-primary_default);
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--button-primary_pressed);
+      }
+    }
+
+    &.disabled {
+      color: var(--text-secondary);
+    }
+  }
+
+  &.type-small_primary {
+    border-radius: 50px;
+    padding: 4px 12px;
+    width: 100%;
+    height: 28px;
+    @include button-small-medium;
+
+    &.color-default {
+      color: var(--text-primary);
+      background-color: var(--button-primary_default);
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--button-primary_pressed);
+      }
+    }
+  }
+
+  &.type-small_secondary {
+    border-radius: 50px;
+    padding: 4px 12px;
+    width: 100%;
+    height: 28px;
+    @include button-small-medium;
+
+    &.color-default {
+      color: var(--text-primary);
+      background-color: var(--surface-primary);
+      border: 1px solid var(--button-secondary_default);
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--button-secondary_pressed);
+      }
+    }
+  }
+}
