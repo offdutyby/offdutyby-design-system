@@ -3,12 +3,17 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import path from "path";
+import createSvgSpritePlugin from "vite-plugin-svg-sprite";
 
 export default defineConfig({
   plugins: [
     react(),
     dts({
       insertTypesEntry: true,
+    }),
+    createSvgSpritePlugin({
+      symbolId: "icon-[name]",
+      include: ["src/assets/icon/**/*.svg"],
     }),
   ],
   css: {
