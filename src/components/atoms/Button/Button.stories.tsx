@@ -4,7 +4,7 @@ import Button from "."; // Button 컴포넌트를 가져옴
 
 // 스토리 설정에 대한 기본 내보내기
 const meta: Meta<typeof Button> = {
-  title: "Componens/Button", // Storybook에서 컴포넌트가 표시될 경로
+  title: "Components/Button", // Storybook에서 컴포넌트가 표시될 경로
   component: Button, // 스토리에서 사용할 컴포넌트
   parameters: {
     // 캔버스에서 컴포넌트를 중앙에 배치하는 선택적 매개변수
