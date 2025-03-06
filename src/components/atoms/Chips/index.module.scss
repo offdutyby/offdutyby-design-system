@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: fit-content;
+  color: var(--text-secondary);
+  cursor: pointer;
+
+  @include body-normal;
+
+  &.fillGray {
+    background-color: var(--surface-tertiary);
+  }
+
+  &.outlineGray {
+    background-color: var(--white);
+    border: 1px solid var(--button-secondary_default);
+    @include body-normal-medium;
+  }
+}
