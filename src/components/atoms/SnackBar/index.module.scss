@@ -1,0 +1,74 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 100%;
+  min-width: 250px;
+  max-width: 80%;
+
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.snackbar {
+  width: 100%;
+  max-width: 330px;
+  border-radius: 30px;
+  padding: 14px 24px;
+  background-color: var(--surface-active);
+  color: var(--text-absolute_white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: fadeIn 0.3s, fadeOut 0.3s 2.7s;
+  opacity: 1;
+
+  @include body-normal;
+}
+
+.message {
+  margin-right: 10px;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 5px;
+}
+
+// 스낵바 타입별 스타일
+.success {
+  background-color: var(--surface-active);
+}
