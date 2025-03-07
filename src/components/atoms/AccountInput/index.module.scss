@@ -1,0 +1,52 @@
+.container {
+  width: 342px;
+  height: 160px;
+  border: 1px solid var(--stroke-secondary);
+  border-radius: 16px;
+}
+
+.top {
+  padding: 20px 0 16px 20px;
+  border: 2px solid var(--stroke-primary);
+  border-radius: 16px;
+  position: relative;
+  .icon {
+    position: absolute;
+    top: 50%;
+    right: 22px;
+    transform: translateY(-50%);
+  }
+
+  .title {
+    margin-bottom: 2px;
+    color: var(--text-primary);
+    @include label-small-medium;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    @include title-large-medium;
+  }
+}
+
+.bottom {
+  padding: 26px 0 28px 20px;
+
+  input {
+    color: var(--text-primary);
+    @include title-large-medium;
+  }
+
+  input::placeholder {
+    color: var(--text-secondary);
+  }
+}
+
+.description {
+  margin-left: 20px;
+  margin-top: 10px;
+  color: var(--text-secondary);
+  @include label-large-medium;
+}

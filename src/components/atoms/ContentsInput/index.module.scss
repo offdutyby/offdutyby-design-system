@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+
+  color: var(--text-primary);
+  @include display-normal-medium;
+
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+}
+
+.description {
+  @include body-large;
+  color: var(--text-tertiary);
+}
