@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react";
-// import React from "react";
-// import ThemeProvider from "../src/hooks/ThemeProvider";
+import { SnackbarProvider } from "../src/components/atoms/SnackBar/index";
+import React from "react";
 
 const preview: Preview = {
   parameters: {
@@ -11,13 +11,13 @@ const preview: Preview = {
       },
     },
   },
-  // decorators: [
-  //   (Story) => (
-  //     <ThemeProvider>
-  //       <Story />
-  //     </ThemeProvider>
-  //   ),
-  // ],
+  decorators: [
+    (Story) => (
+      <SnackbarProvider>
+        <Story />
+      </SnackbarProvider>
+    ),
+  ],
 };
 
 export default preview;

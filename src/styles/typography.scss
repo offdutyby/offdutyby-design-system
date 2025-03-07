@@ -2,6 +2,7 @@
 @mixin display-normal {
   font-size: 26px;
   line-height: 36px;
+  font-weight: 400;
 }
 
 @mixin display-normal-bold {
@@ -25,6 +26,7 @@
 @mixin display-small {
   font-size: 22px;
   line-height: 36px;
+  font-weight: 400;
 }
 
 @mixin display-small-bold {
@@ -49,6 +51,7 @@
 @mixin title-large {
   font-size: 20px;
   line-height: 26px;
+  font-weight: 400;
 }
 
 @mixin title-large-bold {
@@ -72,6 +75,7 @@
 @mixin title-normal {
   font-size: 16px;
   line-height: 24px;
+  font-weight: 400;
 }
 
 @mixin title-normal-bold {
@@ -95,6 +99,7 @@
 @mixin title-small {
   font-size: 14px;
   line-height: 20px;
+  font-weight: 400;
 }
 
 @mixin title-small-bold {
@@ -119,6 +124,7 @@
 @mixin body-large-list {
   font-size: 16px;
   line-height: 24px;
+  font-weight: 400;
 }
 
 @mixin body-large-list-bold {
@@ -142,6 +148,7 @@
 @mixin body-large {
   font-size: 16px;
   line-height: 24px;
+  font-weight: 400;
 }
 
 @mixin body-large-bold {
@@ -189,6 +196,7 @@
 @mixin body-small {
   font-size: 12px;
   line-height: 16px;
+  font-weight: 400;
 }
 
 @mixin body-small-bold {
@@ -213,6 +221,7 @@
 @mixin button-large {
   font-size: 18px;
   line-height: 26px;
+  font-weight: 400;
 }
 
 @mixin button-large-bold {
@@ -236,6 +245,7 @@
 @mixin button-normal {
   font-size: 16px;
   line-height: 24px;
+  font-weight: 400;
 }
 
 @mixin button-normal-bold {
@@ -259,6 +269,7 @@
 @mixin button-small {
   font-size: 14px;
   line-height: 20px;
+  font-weight: 400;
 }
 
 @mixin button-small-bold {
@@ -283,6 +294,7 @@
 @mixin label-large {
   font-size: 14px;
   line-height: 20px;
+  font-weight: 400;
 }
 
 @mixin label-large-bold {
@@ -306,6 +318,7 @@
 @mixin label-normal {
   font-size: 12px;
   line-height: 16px;
+  font-weight: 400;
 }
 
 @mixin label-normal-bold {
@@ -329,6 +342,7 @@
 @mixin label-small {
   font-size: 11px;
   line-height: 16px;
+  font-weight: 400;
 }
 
 @mixin label-small-bold {
@@ -352,6 +366,7 @@
 @mixin label-xsmall {
   font-size: 11px;
   line-height: 16px;
+  font-weight: 400;
 }
 
 @mixin label-xsmall-bold {
