@@ -1,18 +1,14 @@
-import { useState, useRef } from "react";
+import { useState, useRef, ReactNode } from "react";
 import styles from "./index.module.scss";
 import PaginationDots from "@/components/molecules/PaginationDots";
 
-interface SlideItem {
-  id: number;
-  text: string;
-}
-
 interface SlideProps {
-  slides: SlideItem[];
   totalSlide: number;
+  slideWidth: number;
+  slides: ReactNode[];
 }
 
-const DraggableSlider = ({ slides, totalSlide }: SlideProps) => {
+const DraggableSlider = ({ slides, totalSlide, slideWidth }: SlideProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [startX, setStartX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -53,7 +49,8 @@ const DraggableSlider = ({ slides, totalSlide }: SlideProps) => {
     setIsDragging(false);
 
     // 슬라이더 너비
-    const sliderWidth = sliderRef.current.offsetWidth;
+    const sliderWidth = (sliderRef.current as unknown as HTMLDivElement)
+      .offsetWidth;
 
     // 드래그 거리가 슬라이더 너비의 20% 이상이면 슬라이드 변경
     if (Math.abs(dragOffset) > sliderWidth * 0.2) {
@@ -76,7 +73,10 @@ const DraggableSlider = ({ slides, totalSlide }: SlideProps) => {
   };
 
   return (
-    <div className={styles.sliderContainer}>
+    <div
+      className={styles.sliderContainer}
+      style={{ width: `${slideWidth}px` }}
+    >
       {/* 슬라이더 컨테이너 */}
       <div className={styles.sliderWrapper} ref={sliderRef}>
         {/* 슬라이더 트랙 */}
@@ -97,7 +97,12 @@ const DraggableSlider = ({ slides, totalSlide }: SlideProps) => {
         >
           {/* 슬라이드 아이템들 */}
           {slides.map((slide) => (
-            <div key={slide.id}>지금 받을 수 있는 혜택</div>
+            <div
+              className={styles.slideItem}
+              style={{ width: `${slideWidth}px` }}
+            >
+              {slide}
+            </div>
           ))}
         </div>
       </div>
