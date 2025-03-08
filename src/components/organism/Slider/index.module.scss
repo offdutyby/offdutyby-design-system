@@ -1,0 +1,80 @@
+// 슬라이더 컨테이너 스타일
+.sliderContainer {
+  width: 100%;
+  height: 100%;
+  width: 358px;
+  margin: 0 auto;
+
+  // 슬라이더 래퍼
+  .sliderWrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem; // 8px
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  // 슬라이더 트랙
+  .sliderTrack {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-out;
+    user-select: none;
+  }
+
+  // 슬라이드 아이템
+  .slideItem {
+    flex-shrink: 0;
+
+    width: 100%;
+    height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  // 페이지네이션 도트
+  .paginationDots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    .paginationDot {
+      width: 0.75rem;
+      height: 0.75rem;
+      margin: 0 0.25rem;
+      border-radius: 50%;
+      background-color: #d1d5db;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &.active {
+        background-color: #2563eb;
+      }
+
+      &:hover {
+        background-color: #93c5fd;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+      }
+    }
+  }
+
+  // 슬라이드 카운터
+  .slideCounter {
+    text-align: center;
+    margin-top: 0.5rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+}

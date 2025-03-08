@@ -1,16 +1,16 @@
 import Icon from "@/components/atoms/Icon";
 import styles from "./index.module.scss";
 
-interface PagenationDotsProps {
+interface PaginationDotsProps {
   totalPages?: number;
   currentPage?: number;
   onPageChange?: (page: number) => void;
 }
-const PagenationDots = ({
+const PaginationDots = ({
   totalPages = 2,
   currentPage,
   onPageChange,
-}: PagenationDotsProps) => {
+}: PaginationDotsProps) => {
   return (
     <div className={styles.container}>
       {Array.from({ length: totalPages }, (_, index) => (
@@ -31,4 +31,4 @@ const PagenationDots = ({
   );
 };
 
-export default PagenationDots;
+export default PaginationDots;
