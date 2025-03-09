@@ -27,11 +27,3 @@ export const Default: Story = {
     description: "계좌번호만 입력해도 은행을 찾아드려요.",
   },
 };
-
-export const Error: Story = {
-  args: {
-    placeholder: "성함을 적어주세요.",
-    title: "받는 분 내역 표시",
-    errorText: "10자까지 입력할 수 있어요.",
-  },
-};
