@@ -1,9 +1,9 @@
 name: "Build, Test and Publish"
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
   test-and-build:
@@ -29,7 +29,7 @@ jobs:
         run: yarn build
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist/
@@ -71,7 +71,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist/
@@ -79,7 +79,7 @@ jobs:
       - name: Check version changes
         id: check
         run: |
-          LATEST_VERSION=$(npm view your-design-system version 2>/dev/null || echo "0.0.0")
+          LATEST_VERSION=$(npm view offdutyby-design-system version 2>/dev/null || echo "0.0.0")
           CURRENT_VERSION=$(node -p "require('./package.json').version")
           if [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; then
             echo "::set-output name=should_publish::true"
