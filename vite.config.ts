@@ -3,8 +3,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import path from "path";
-import svgr from "vite-plugin-svgr";
 import libCss from "vite-plugin-libcss";
+import createSvgSpritePlugin from "vite-plugin-svg-sprite";
 
 export default defineConfig({
   plugins: [
@@ -13,19 +13,21 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
     libCss(),
-    svgr({
-      svgrOptions: {
-        exportType: "default",
-        ref: true,
-        svgo: false,
-        titleProp: true,
-      },
-      include: "**/*.svg",
-    }), // SVG를 React 컴포넌트로 변환
-    // createSvgSpritePlugin({
-    //   symbolId: "icon-[name]",
-    //   include: ["src/assets/icon/**/*.svg"],
+    // svgr({
+    //   svgrOptions: {
+    //     exportType: "default",
+    //     ref: true,
+    //     svgo: false,
+    //     titleProp: true,
+    //   },
+    //   include: "**/*.svg",
     // }),
+
+    // SVG를 React 컴포넌트로 변환
+    createSvgSpritePlugin({
+      symbolId: "icon-[name]",
+      include: ["src/assets/icon/**/*.svg"],
+    }),
   ],
   css: {
     preprocessorOptions: {
