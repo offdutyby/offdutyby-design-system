@@ -82,6 +82,10 @@
     "vite-plugin-svgr": "^4.3.0",
     "vitest": "^3.0.7"
   },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
