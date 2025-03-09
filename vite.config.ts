@@ -4,12 +4,15 @@ import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import path from "path";
 import svgr from "vite-plugin-svgr";
+import libCss from "vite-plugin-libcss";
+
 export default defineConfig({
   plugins: [
     react(),
     dts({
       insertTypesEntry: true,
     }),
+    libCss(),
     svgr({
       svgrOptions: {
         exportType: "default",
