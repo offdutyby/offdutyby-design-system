@@ -14,7 +14,7 @@ interface Message {
 }
 
 // 스낵바 프로바이더 컴포넌트
-export const SnackbarProvider: React.FC<SnackbarProviderProps> = ({
+const SnackbarProvider: React.FC<SnackbarProviderProps> = ({
   children,
 }: SnackbarProviderProps) => {
   const [snackbars, setSnackbars] = useState<Message[]>([]);
@@ -62,3 +62,5 @@ export const SnackbarProvider: React.FC<SnackbarProviderProps> = ({
     </SnackbarContext.Provider>
   );
 };
+
+export default SnackbarProvider;

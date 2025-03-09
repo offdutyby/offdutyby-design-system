@@ -39,7 +39,7 @@ export default defineConfig({
       // entry: "src/main.tsx", // 라이브러리의 진입점 파일
       // name: "OffDesignSystem", // 라이브러리의 이름
       // fileName: (format) => `off-design-system.${format}.js`, // 출력 파일 이름 형식
-      entry: path.resolve(__dirname, "src/index.ts"),
+      entry: path.resolve(__dirname, "src/components/index.ts"),
       name: "OffDesignSystem",
       formats: ["es", "cjs"],
       fileName: (format) => `index.${format === "es" ? "esm" : format}.js`,
