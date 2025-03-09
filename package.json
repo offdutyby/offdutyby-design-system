@@ -1,13 +1,13 @@
 {
-  "name": "offdutyby-design-system.git",
+  "name": "@offdutybyblo/design-system",
   "author": "offdutybyblo",
   "description": "Design System Package",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
