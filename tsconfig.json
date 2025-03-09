@@ -13,7 +13,8 @@
     "moduleResolution": "Node", // 모듈 해석 방식
     "resolveJsonModule": true, // JSON 모듈 해석 허용
     "isolatedModules": true, // 개별 모듈로 처리
-    "noEmit": true, // 컴파일 시 파일 생성 안 함
+    "emitDeclarationOnly": true,
+    "noEmit": false, // 컴파일 시 파일 생성 안 함
     "jsx": "react-jsx", // React JSX 사용
     "baseUrl": ".", // 상대 경로의 기준 디렉토리
     "paths": {

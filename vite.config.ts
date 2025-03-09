@@ -53,14 +53,23 @@ export default defineConfig({
       fileName: (format) => `index.${format === "es" ? "esm" : format}.js`,
     },
     rollupOptions: {
-      // 외부 종속성을 설정하여 번들에 포함되지 않도록 할 수 있습니다.
-      external: ["react", "react-dom"],
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        /^react-/, // react로 시작하는 모든 패키지
+      ],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+          "react/jsx-runtime": "jsxRuntime",
         },
+        preserveModules: false, // 모듈 구조 보존하지 않음
+        manualChunks: undefined, // 수동 청크 비활성화
       },
     },
+    sourcemap: true, // 소스맵 생성
+    minify: "terser", // 코드 최소화
   },
 });
