@@ -2,7 +2,7 @@
   "name": "offdutyby-design-system.git",
   "author": "offdutybyblo",
   "description": "Design System Package",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "main": "dist/index.js",
