@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SnackbarProvider } from ".";
+import SnackbarProvider from ".";
 import { useSnackbar } from "@/hooks/useSnackbar";
 import Button from "@/components/atoms/Button";
 
