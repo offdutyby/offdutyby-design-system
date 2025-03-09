@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import { SnackbarProvider } from "../src/components/atoms/SnackBar/index";
+import SnackbarProvider from "../src/components/atoms/SnackBar/index";
 import React from "react";
 
 const preview: Preview = {
