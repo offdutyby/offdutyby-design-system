@@ -12,6 +12,12 @@ interface CardProps {
   slider: {
     totalSlide: number;
     slideWidth: number;
+    paginationDotsPosition?: {
+      top?: string;
+      right?: string;
+      bottom?: string;
+      left?: string;
+    };
     slides: ReactNode[];
   };
 }
@@ -25,6 +31,7 @@ const Card = ({ header, slider }: CardProps) => {
           totalSlide={slider.totalSlide}
           slideWidth={slider.slideWidth}
           slides={slider.slides}
+          paginationDotsPosition={slider.paginationDotsPosition}
         />
       </div>
     </Box>

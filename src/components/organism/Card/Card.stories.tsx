@@ -22,6 +22,10 @@ export const Primary: Story = {
     slider: {
       totalSlide: 2,
       slideWidth: 358,
+      paginationDotsPosition: {
+        bottom: "-18px",
+        left: "50%",
+      },
       slides: [
         <ListItem
           left_title="홈플러스"

@@ -21,3 +21,11 @@ export const Primary: Story = {
     iconName: "illustration_icon-paper",
   },
 };
+
+Primary.decorators = [
+  (Story) => (
+    <div style={{ width: "280px" }}>
+      <Story />
+    </div>
+  ),
+];

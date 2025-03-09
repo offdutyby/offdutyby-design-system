@@ -9,10 +9,8 @@ const Test = () => {
     <div
       style={{
         width: "390px",
-        height: "844px",
+        height: "600px",
         backgroundColor: "white",
-        border: "1px solid grey",
-        borderRadius: "10px",
       }}
     >
       <div
@@ -58,6 +56,12 @@ export const Primary: Story = {
 
 Primary.decorators = [
   (Story) => {
-    return <Story />;
+    return (
+      <div
+        style={{ width: "390px", height: "780px", backgroundColor: "white" }}
+      >
+        <Story />
+      </div>
+    );
   },
 ];

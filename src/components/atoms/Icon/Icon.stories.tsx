@@ -23,3 +23,17 @@ export const Logo: Story = {
     name: "logo-kakaopay",
   },
 };
+
+Logo.decorators = [
+  (Story) => (
+    <div
+      style={{
+        width: "100px",
+        height: "100px",
+        backgroundColor: "whitesmoke",
+      }}
+    >
+      <Story />
+    </div>
+  ),
+];
