@@ -25,7 +25,13 @@
     "declaration": true,
     "declarationDir": "./dist/types",
     "composite": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "noFallthroughCasesInSwitch": true,
+    // TypeScript가 .d.ts 타입 선언 파일을 생성하도록 함
+    //  .d.ts 파일에 대한 소스 맵을 생성하도록 함
+    "declarationMap": true,
+    // 컴파일된 JavaScript 파일에 대한 소스 맵을 생성하도록 함
+    "sourceMap": true
   },
   "include": ["src"], // 포함할 파일
   "exclude": ["node_modules"] // 제외할 파일
