@@ -13,6 +13,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Update lockfile if needed
+        run: yarn install
+
+      - name: Install dependencies with frozen lockfile
+        run: yarn install --frozen-lockfile
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
