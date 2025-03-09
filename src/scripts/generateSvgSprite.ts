@@ -61,8 +61,8 @@ async function findSvgFiles(dir: string): Promise<string[]> {
 async function generateSvgSprite() {
   try {
     // 입력 및 출력 디렉토리 설정
-    const inputDir = path.resolve(process.cwd(), "src/assets/icon");
-    const outputDir = path.resolve(process.cwd(), "src/assets/sprite");
+    const inputDir = path.resolve(process.cwd(), "public/assets/icon");
+    const outputDir = path.resolve(process.cwd(), "public/assets/sprite");
     const outputFile = path.join(outputDir, "sprite.svg");
 
     // 출력 디렉토리가 없으면 생성

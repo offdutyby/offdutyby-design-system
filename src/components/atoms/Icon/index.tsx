@@ -1,7 +1,6 @@
 import { forwardRef } from "react";
 import clsx from "clsx";
 import type { IconName } from "@/types/icon";
-import sprite from "@/assets/sprite/sprite.svg"; // sprite 파일 import
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   name: IconName;
@@ -11,14 +10,22 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
   fill?: string;
   /**
-   * @description sprite 파일 경로를 직접 지정할 경우 사용
+   * @description 스프라이트 파일 경로 (기본값: '/assets/sprite.svg')
    */
-  url?: string;
+  spritePath?: string;
 }
 
 const Icon = forwardRef<SVGSVGElement, IconProps>(
   (
-    { name, className, width = "44px", height = "44px", style, url, ...props },
+    {
+      name,
+      className,
+      width = "44px",
+      height = "44px",
+      style,
+      spritePath = "/assets/sprite/sprite.svg",
+      ...props
+    },
     ref
   ) => {
     return (
@@ -32,7 +39,7 @@ const Icon = forwardRef<SVGSVGElement, IconProps>(
         style={style}
         {...props}
       >
-        <use href={url ? url : `${sprite}#icon-${name}`} />
+        <use href={`${spritePath}#icon-${name}`} />
       </svg>
     );
   }

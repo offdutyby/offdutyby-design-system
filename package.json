@@ -9,7 +9,8 @@
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "assets"
   ],
   "publishConfig": {
     "access": "public"
@@ -20,6 +21,9 @@
     "ui",
     "components"
   ],
+  "bin": {
+    "install-off-icons": "./bin/generatePackageSprite.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/offdutyby/offdutyby-design-system.git"

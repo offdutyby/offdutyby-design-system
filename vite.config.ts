@@ -13,17 +13,6 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
     libCss(),
-    // svgr({
-    //   svgrOptions: {
-    //     exportType: "default",
-    //     ref: true,
-    //     svgo: false,
-    //     titleProp: true,
-    //   },
-    //   include: "**/*.svg",
-    // }),
-
-    // SVG를 React 컴포넌트로 변환
     createSvgSpritePlugin({
       symbolId: "icon-[name]",
       include: ["src/assets/icon/**/*.svg"],
