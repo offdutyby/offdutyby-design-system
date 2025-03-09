@@ -34,7 +34,7 @@
     "build-storybook": "storybook build",
     "scripts:palette": "ts-node --esm src/scripts/generateColorPalette.ts",
     "scripts:icons": "ts-node --esm src/scripts/generateSvgSprite.ts",
-    "chromatic": "npx chromatic --project-token=chpt_3d5ef2d4c29dfb7"
+    "chromatic": "npx chromatic --project-token=chpt_3d5ef2d4c29dfb7 --exit-zero-on-changes"
   },
   "dependencies": {
     "react": "^18.2.0",

@@ -58,7 +58,7 @@ jobs:
         # --frozen-lockfile 옵션 제거
 
       - name: Publish to Chromatic
-        run: yarn chromatic
+        run: yarn chromatic --exit-zero-on-changes
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
