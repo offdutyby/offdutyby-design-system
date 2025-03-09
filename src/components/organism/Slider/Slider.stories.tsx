@@ -16,8 +16,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    totalSlide: 3,
+    totalSlide: 4,
     slideWidth: 358,
+    paginationDotsPosition: {
+      top: "4px",
+      right: "20px",
+    },
     slides: [
       <Banner
         key={0}
@@ -27,6 +31,12 @@ export const Primary: Story = {
       />,
       <Banner
         key={1}
+        title="새로운 소식 아직 안 봤다면"
+        description="열어만 봐도 30P"
+        iconName="illustration_icon-coin"
+      />,
+      <Banner
+        key={2}
         title="새로운 소식 아직 안 봤다면"
         description="열어만 봐도 30P"
         iconName="illustration_icon-coin"

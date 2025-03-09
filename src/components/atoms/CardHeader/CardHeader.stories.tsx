@@ -18,3 +18,11 @@ export const Primary: Story = {
     description: "17분 전",
   },
 };
+
+Primary.decorators = [
+  (Story) => (
+    <div style={{ width: "300px" }}>
+      <Story />
+    </div>
+  ),
+];

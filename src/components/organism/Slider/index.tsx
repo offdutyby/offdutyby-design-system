@@ -6,9 +6,20 @@ interface SlideProps {
   totalSlide: number;
   slideWidth: number;
   slides: ReactNode[];
+  paginationDotsPosition?: {
+    top?: string;
+    bottom?: string;
+    left?: string;
+    right?: string;
+  };
 }
 
-const DraggableSlider = ({ slides, totalSlide, slideWidth }: SlideProps) => {
+const Slider = ({
+  slides,
+  totalSlide,
+  slideWidth,
+  paginationDotsPosition,
+}: SlideProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [startX, setStartX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -108,20 +119,23 @@ const DraggableSlider = ({ slides, totalSlide, slideWidth }: SlideProps) => {
       </div>
 
       {/* 페이지네이션 도트 */}
-      <div className={styles.paginationDots}>
+      <div
+        className={styles.paginationDots}
+        style={{
+          top: paginationDotsPosition?.top,
+          bottom: paginationDotsPosition?.bottom,
+          left: paginationDotsPosition?.left,
+          right: paginationDotsPosition?.right,
+        }}
+      >
         <PaginationDots
           currentPage={currentSlide + 1}
           totalPages={totalSlide}
           onPageChange={(page) => goToSlide(page - 1)}
         />
       </div>
-
-      {/* 현재 슬라이드 위치 표시 */}
-      <div className={styles.slideCounter}>
-        {currentSlide + 1} / {totalSlide}
-      </div>
     </div>
   );
 };
 
-export default DraggableSlider;
+export default Slider;
