@@ -3,18 +3,26 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import path from "path";
-import createSvgSpritePlugin from "vite-plugin-svg-sprite";
-
+import svgr from "vite-plugin-svgr";
 export default defineConfig({
   plugins: [
     react(),
     dts({
       insertTypesEntry: true,
     }),
-    createSvgSpritePlugin({
-      symbolId: "icon-[name]",
-      include: ["src/assets/icon/**/*.svg"],
-    }),
+    svgr({
+      svgrOptions: {
+        exportType: "default",
+        ref: true,
+        svgo: false,
+        titleProp: true,
+      },
+      include: "**/*.svg",
+    }), // SVG를 React 컴포넌트로 변환
+    // createSvgSpritePlugin({
+    //   symbolId: "icon-[name]",
+    //   include: ["src/assets/icon/**/*.svg"],
+    // }),
   ],
   css: {
     preprocessorOptions: {
