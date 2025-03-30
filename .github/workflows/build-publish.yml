@@ -21,12 +21,10 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-        # --frozen-lockfile 옵션 제거하여 필요시 yarn.lock 업데이트 허용
 
       - name: Install terser (required for build)
         run: yarn add --dev terser
 
-      # 테스트가 구현되지 않은 경우 건너뜀
       - name: Run tests (if available)
         run: yarn test || echo "No tests found, continuing..."
 
@@ -39,31 +37,8 @@ jobs:
           name: dist
           path: dist/
 
-  chromatic-deployment:
-    needs: test-and-build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-          cache: "yarn"
-
-      - name: Install dependencies
-        run: yarn install
-        # --frozen-lockfile 옵션 제거
-
-      - name: Publish to Chromatic
-        run: yarn chromatic --exit-zero-on-changes
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-
   publish-npm:
-    needs: [test-and-build, chromatic-deployment]
+    needs: [test-and-build]
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
     steps:
