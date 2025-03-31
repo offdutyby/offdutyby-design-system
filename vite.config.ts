@@ -5,6 +5,7 @@ import dts from "vite-plugin-dts";
 import path from "path";
 import libCss from "vite-plugin-libcss";
 import createSvgSpritePlugin from "vite-plugin-svg-sprite";
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   plugins: [
@@ -13,6 +14,7 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
     libCss(),
+    svgr(),
     createSvgSpritePlugin({
       symbolId: "icon-[name]",
       include: ["src/assets/icon/**/*.svg"],
