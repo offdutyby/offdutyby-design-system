@@ -29,7 +29,6 @@ export const Primary: Story = {
     type: "primary", // 기본 버튼 스타일을 사용
     children: "확인", // 버튼에 표시될 텍스트
     disabled: false, // 비활성화 여부 설정
-    state: "default", // 버튼 상태 설정
     fullWidth: true,
   },
 };
@@ -39,7 +38,6 @@ export const Secondary: Story = {
     type: "secondary", // 기본 버튼 스타일을 사용
     children: "취소", // 버튼에 표시될 텍스트
     disabled: false, // 비활성화 여부 설정
-    state: "default", // 버튼 상태 설정
   },
 };
 
@@ -48,7 +46,6 @@ export const BottomSheet: Story = {
     type: "bottom_sheet", // 기본 버튼 스타일을 사용
     children: "확인", // 버튼에 표시될 텍스트
     disabled: false, // 비활성화 여부 설정
-    state: "default", // 버튼 상태 설정
   },
 };
 
@@ -57,6 +54,5 @@ export const Small: Story = {
     type: "small_primary", // 작은 크기의 버튼
     children: "송금", // 버튼에 표시될 텍스트
     disabled: false, // 비활성화 여부 설정
-    state: "default", // 버튼 상태 설정
   },
 };
