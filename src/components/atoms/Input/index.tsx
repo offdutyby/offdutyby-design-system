@@ -1,65 +1,68 @@
-import Icon from "@/components/atoms/Icon";
 import styles from "./index.module.scss";
 import clsx from "clsx";
-import { forwardRef, HTMLAttributes, useState } from "react";
-
+import { forwardRef, HTMLAttributes } from "react";
 type InputElementProps = HTMLAttributes<HTMLInputElement>;
+
 interface InputProps extends InputElementProps {
   label?: string;
   placeholder?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  errorText?: string;
-  helperText?: string;
-  disabled?: boolean;
-  readOnly?: boolean;
-  type?: string;
-  title?: string;
+  /**
+   * @description Fake Input이 필요한 경우 사용합니다.
+   */
+  isVisible?: boolean;
+  /**
+   * @description isError 사용 시, errorMessage prop을 함께 사용해주세요.
+   */
+  isError?: boolean;
+  /**
+   * @description isError 보다 description의 우선순의가 낮습니다. error 이슈 제거 시, description이 노출됩니다.
+   */
   description?: string;
-  isClearButton?: boolean;
+  errorMessage?: string;
 }
 
+/**
+ * - Input Base 역할에 충실합니다.
+ * - Input Component의 기본 기능들은 구현 완료
+ * - Class를 주입 받아 어디서든 자유롭게 사용 가능한 Input을 지향합니다. (Inline Style 제거)
+ * - Error message가 descript 보다 우선순위가 높게 적용. (error 이슈 제거 시, description 노출)
+ */
+
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, ...props }, ref) => {
-    const [text, setText] = useState("");
+  ({ isVisible = true, ...rest }, ref) => {
+    const {
+      label,
+      placeholder,
+      description,
+      isError,
+      errorMessage,
+      className,
+    } = rest;
+    const {
+      container,
+      base,
+      description: descriptionText,
+      error,
+      label: labelText,
+    } = styles;
+    const baseInputClassName = clsx(base, className, !isVisible && styles.hide);
+
     return (
-      <>
-        {props.title && <p className={styles.title}>{props.title}</p>}
-        <div className={styles.inputContainer}>
-          <input
-            className={clsx(
-              props.errorText && styles.error,
-              styles.container,
-              className
-            )}
-            placeholder={props.placeholder}
-            {...props}
-            onChange={(e) => setText(e.target.value)}
-            value={text}
-            ref={ref}
-          />
-          {props.isClearButton && text.length > 0 && (
-            <Icon
-              className={styles.icon}
-              name="app-cancel_20"
-              width={20}
-              height={20}
-              onClick={() => setText("")}
-            />
-          )}
-        </div>
-        {props.description && !props.errorText && <p>{props.description}</p>}
-        {props.errorText && (
-          <p className={clsx(styles.errorText)}>{props.errorText}</p>
+      <div className={container}>
+        {label && <label className={labelText}>{label}</label>}
+        <input
+          className={baseInputClassName}
+          placeholder={placeholder}
+          {...rest}
+          ref={ref}
+        />
+        {!isError && description && (
+          <p className={descriptionText}>{description}</p>
         )}
-      </>
+        {isError && errorMessage && <p className={error}>{errorMessage}</p>}
+      </div>
     );
   }
 );
-
 Input.displayName = "Input";
-
 export default Input;

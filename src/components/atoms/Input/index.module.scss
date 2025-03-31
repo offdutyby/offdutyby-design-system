@@ -1,57 +1,42 @@
-.inputContainer {
-  position: relative;
-
-  .icon {
-    position: absolute;
-    right: 0;
-    bottom: 9px;
-    transform: translateY(-50%);
-  }
-}
-
 .container {
-  width: 342px;
-  height: 38px;
-  margin-bottom: 8px;
-  color: var(--text-primary);
-  outline: none;
-  border: 0;
-  border-bottom: 2px solid var(--stroke-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 
-  &::placeholder {
-    @include title-large-medium;
-    color: var(--text-tertiary);
+  // Base Input Style
+  .base {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--neutral-80);
+    border-radius: 20px;
+    @include body-normal;
+
+    &.hide {
+      padding: 0;
+      border-style: none;
+      border-radius: 0;
+      color: transparent;
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
   }
 
-  @include title-large-medium;
-
-  &.error {
-    border-bottom: 2px solid var(--common-error);
+  .label {
+    color: var(--text-primary);
+    @include label-large-medium;
   }
 
-  //   &:focus {
-  //     border: 1px solid var(--stroke-primary);
-  //   }
-  //   &:focus-visible {
-  //     border: 1px solid var(--stroke-primary);
-  //   }
-  //   &:focus-within {
-  //     border: 1px solid var(--stroke-primary);
-  //   }
-}
+  .description {
+    margin-left: 14px;
+    color: var(--text-secondary);
+    @include label-xsmall-semibold;
+  }
 
-.title {
-  @include title-large-medium;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-}
-
-.description {
-  @include label-small-medium;
-  color: var(--text-primary);
-}
-
-.errorText {
-  @include label-small-medium;
-  color: var(--common-error);
+  .error {
+    margin-left: 14px;
+    color: var(--common-error);
+    @include label-xsmall-medium;
+  }
 }
