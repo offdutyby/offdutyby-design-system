@@ -8,4 +8,14 @@ const refineStringToNumber = (value: string): string => {
   return String(value).replace(/[^0-9]/g, "");
 };
 
-export { refineStringToNumber };
+/**
+ * 숫자를 1,000원 단위에 콤마(,) 추가
+ * @param {number|string} value
+ * @returns {string} 콤마가 포함된 형식의 문자열
+ */
+const formatCurrency = (value: string): string => {
+  const refineInputValue = refineStringToNumber(value);
+  return refineInputValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+export { refineStringToNumber, formatCurrency };
