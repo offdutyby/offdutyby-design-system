@@ -13,7 +13,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
    * @description 스프라이트 파일 경로 (기본값: '/assets/sprite.svg')
    */
   spritePath?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Icon = forwardRef<SVGSVGElement, IconProps>(

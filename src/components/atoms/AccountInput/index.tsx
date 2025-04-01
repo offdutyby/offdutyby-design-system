@@ -1,86 +1,81 @@
 import Icon from "@/components/atoms/Icon";
 import styles from "./index.module.scss";
 import clsx from "clsx";
-import { forwardRef, HTMLAttributes, useEffect, useState } from "react";
+import Input from "@/components/atoms/Input";
+import { Control, Controller, FieldValues, Path } from "react-hook-form";
 import Chips from "@/components/atoms/Chips";
+import { refineStringToNumber } from "@/utils/number";
 
-type InputElementProps = HTMLAttributes<HTMLInputElement>;
-interface InputProps extends InputElementProps {
-  label?: string;
-  placeholder?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  errorText?: string;
-  helperText?: string;
-  disabled?: boolean;
-  readOnly?: boolean;
-  type?: string;
+interface AccountInputProps<T extends FieldValues> {
   title?: string;
-  description?: string;
-  isClearButton?: boolean;
   accountPlaceholder?: string;
   bankPlaceholder?: string;
+  description?: string;
+  name: Path<T>;
+  control: Control<T>;
+  onReset: () => void;
 }
 
-const AccountInput = forwardRef<HTMLInputElement, InputProps>(
-  ({ accountPlaceholder, bankPlaceholder, title, description }, ref) => {
-    const [text, setText] = useState("");
-    const [bank, setBank] = useState("");
+const AccountInput = <T extends FieldValues>({
+  accountPlaceholder,
+  bankPlaceholder,
+  title,
+  description,
+  name,
+  control,
+  onReset,
+}: AccountInputProps<T>) => {
+  return (
+    <Controller
+      name={name}
+      control={control}
+      render={({ field: { onChange, ...rest } }) => (
+        <div className={styles.container}>
+          <div className={clsx(styles.top)}>
+            <div className={styles.title}>{title}</div>
+            <Input
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                if (e.target.value.length > 11) return;
+                const refineValue = refineStringToNumber(e.target.value);
 
-    useEffect(() => {
-      if (text.length > 7) {
-        setBank("우리 은행");
-      }
+                onChange(refineValue);
+              }}
+              {...rest}
+              className={styles.input}
+              placeholder={accountPlaceholder}
+            />
+            <Icon
+              onClick={onReset}
+              className={styles.icon}
+              name="app-cancel_20"
+              width={20}
+              height={20}
+            />
+          </div>
 
-      if (text.length < 8) {
-        setBank("");
-      }
-    }, [text]);
-
-    return (
-      <div className={styles.container}>
-        <div className={clsx(styles.top)}>
-          <div className={styles.title}>{title}</div>
-          <input
-            ref={ref}
-            type="text"
-            value={text}
-            placeholder={accountPlaceholder}
-            onChange={(e) => setText(e.target.value)}
-          />
-          <Icon
-            onClick={() => {
-              setText("");
-              setBank("");
-            }}
-            className={styles.icon}
-            name="app-cancel_20"
-            width={20}
-            height={20}
-          />
+          <div className={clsx(styles.bottom)}>
+            <input
+              placeholder={bankPlaceholder}
+              type="text"
+              value={rest.value.length < 8 ? "" : "우리"}
+            />
+          </div>
+          {rest.value.length < 8 ? (
+            <div className={styles.description}>{description}</div>
+          ) : (
+            <Chips
+              fillGray
+              padding="5px 10px 5px 5px"
+              radius="8px"
+              prefix={<Icon name="bank_small-woori" width={16} height={16} />}
+            >
+              우리 10200302020
+            </Chips>
+          )}
         </div>
-
-        <div className={clsx(styles.bottom)}>
-          <input placeholder={bankPlaceholder} type="text" value={bank} />
-        </div>
-
-        {text.length < 8 ? (
-          <div className={styles.description}>{description}</div>
-        ) : (
-          <Chips
-            fillGray
-            padding="5px 10px 5px 5px"
-            radius="8px"
-            prefix={<Icon name="bank_small-woori" width={16} height={16} />}
-          >
-            우리 10200302020
-          </Chips>
-        )}
-      </div>
-    );
-  }
-);
-
-AccountInput.displayName = "AccountInput";
+      )}
+    />
+  );
+};
 
 export default AccountInput;

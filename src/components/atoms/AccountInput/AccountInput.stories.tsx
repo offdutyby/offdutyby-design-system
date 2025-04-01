@@ -1,19 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import AccountInput from ".";
-const meta: Meta<typeof AccountInput> = {
+import ExAccountInput from "./ExAccountInput.tsx";
+const meta: Meta<typeof ExAccountInput> = {
   title: "Components/AccountInput",
-  component: AccountInput,
+  component: ExAccountInput,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
   argTypes: {},
-  args: {
-    placeholder: "성함을 적어주세요.",
-    title: "받는 분 내역 표시",
-    description: "받는 분의 성함을 적어주세요.",
-    // errorText: "10자까지 입력할 수 있어요.",
-  },
+  args: {},
 };
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -21,8 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     title: "계좌번호",
-    isClearButton: true,
-    accountPlaceholder: "계좌번호를 적어주세요.",
+    accountPlaceholder: "계좌를 입력해주세요.",
     bankPlaceholder: "은행/증권사",
     description: "계좌번호만 입력해도 은행을 찾아드려요.",
   },
