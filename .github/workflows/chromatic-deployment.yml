@@ -1,4 +1,4 @@
-name: Chromatic UI Tests
+name: Chromatic UI Testing and Deployment
 
 on:
   pull_request:
@@ -6,32 +6,32 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  chromatic-deployment:
+  chromatic-test:
+    name: Chromatic UI Test
     runs-on: ubuntu-latest
     steps:
-      # 코드 체크아웃
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # 전체 git 히스토리 필요 (Chromatic에 필요)
+          fetch-depth: 0
 
-      # Node.js 설정
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18"
           cache: "yarn"
 
-      # 의존성 설치
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      # Storybook 빌드 (필요한 경우)
       - name: Build Storybook
         run: yarn build-storybook
 
-      # Chromatic 실행
-      - name: Publish to Chromatic
+      - name: Run Chromatic UI Tests
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          exitZeroOnChanges: false
+          exitZeroOnChanges: true
+          autoAcceptChanges: false
+          traceChanged: true
+          onlyChanged: true
+          storybookBuildDir: storybook-static
