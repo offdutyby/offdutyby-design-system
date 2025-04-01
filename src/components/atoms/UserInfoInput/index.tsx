@@ -1,70 +1,60 @@
-import Icon from "@/components/atoms/Icon";
-import styles from "./index.module.scss";
 import clsx from "clsx";
-import { forwardRef, HTMLAttributes, useState } from "react";
-import { Input } from "@/components";
+import styles from "./index.module.scss";
+import Input from "@/components/atoms/Input";
+import { Control, Controller, FieldValues, Path } from "react-hook-form";
+import Icon from "@/components/atoms/Icon";
 
-type InputElementProps = HTMLAttributes<HTMLInputElement>;
-interface UserInfoInputProps extends InputElementProps {
-  label?: string;
-  placeholder?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  errorText?: string;
-  helperText?: string;
-  disabled?: boolean;
-  readOnly?: boolean;
-  type?: string;
+interface UserInfoInputProps<T extends FieldValues> {
   title?: string;
+  placeholder?: string;
   description?: string;
-  isClearButton?: boolean;
+  name: Path<T>;
+  control: Control<T>;
+  onReset: () => void;
 }
 
-const UserInfoInput = forwardRef<HTMLInputElement, UserInfoInputProps>(
-  ({ className, ...props }, ref) => {
-    const [text, setText] = useState("");
+const UserInfoInput = <T extends FieldValues>({
+  title,
+  placeholder,
+  description,
+  name,
+  control,
+  onReset,
+}: UserInfoInputProps<T>) => {
+  const {
+    container,
+    title: titleText,
+    description: descriptionText,
+    errorText,
+    inputContainer,
+    icon,
+  } = styles;
+  const containerClassname = clsx([inputContainer]);
 
-    const containerClassName = clsx(
-      styles.container,
-      className,
-      props.errorText && styles.error
-    );
-    return (
-      <>
-        {props.title && <p className={styles.title}>{props.title}</p>}
-        <div className={styles.inputContainer}>
-          <Input
-            className={containerClassName}
-            placeholder={props.placeholder}
-            {...props}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setText(e.target.value)
-            }
-            value={text}
-            ref={ref}
-          />
-          {props.isClearButton && text.length > 0 && (
-            <Icon
-              className={styles.icon}
-              name="app-cancel_20"
-              width={20}
-              height={20}
-              onClick={() => setText("")}
-            />
+  return (
+    <Controller
+      name={name}
+      control={control}
+      render={({ field, fieldState: { error } }) => (
+        <div className={containerClassname}>
+          <p className={titleText}>{title}</p>
+          <Input {...field} className={container} placeholder={placeholder} />
+          {description && !error && (
+            <p className={descriptionText}>{description}</p>
           )}
-        </div>
-        {props.description && !props.errorText && <p>{props.description}</p>}
-        {props.errorText && (
-          <p className={clsx(styles.errorText)}>{props.errorText}</p>
-        )}
-      </>
-    );
-  }
-);
+          {error && <p className={errorText}>{error?.message}</p>}
 
-UserInfoInput.displayName = "UserInfoInput";
+          <Icon
+            className={icon}
+            name="app-cancel_20"
+            width={20}
+            height={20}
+            onClick={onReset}
+          />
+        </div>
+      )}
+    />
+  );
+};
 
 export default UserInfoInput;

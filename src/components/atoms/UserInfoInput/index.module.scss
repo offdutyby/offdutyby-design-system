@@ -1,22 +1,27 @@
 .inputContainer {
   position: relative;
+  width: fit-content;
 
   .icon {
     position: absolute;
     right: 0;
+    top: 64px;
     bottom: 9px;
     transform: translateY(-50%);
+    z-index: 100;
+    cursor: pointer;
   }
 }
 
 .container {
-  width: 342px;
+  width: 320px;
   height: 38px;
   margin-bottom: 8px;
-  color: var(--text-primary);
-  outline: none;
+  padding-right: 22px;
   border: 0;
   border-bottom: 2px solid var(--stroke-primary);
+  color: var(--text-primary);
+  outline: none;
 
   &::placeholder {
     @include title-large-medium;
@@ -28,16 +33,6 @@
   &.error {
     border-bottom: 2px solid var(--common-error);
   }
-
-  //   &:focus {
-  //     border: 1px solid var(--stroke-primary);
-  //   }
-  //   &:focus-visible {
-  //     border: 1px solid var(--stroke-primary);
-  //   }
-  //   &:focus-within {
-  //     border: 1px solid var(--stroke-primary);
-  //   }
 }
 
 .title {
