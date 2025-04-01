@@ -1,22 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ESNext", // 최신 ECMAScript 버전으로 컴파일
-    "module": "ESNext", // ES 모듈 시스템 사용
-    "lib": ["DOM", "DOM.Iterable", "ESNext"], // 사용할 라이브러리
-    "allowJs": true, // JavaScript 파일 허용
-    "skipLibCheck": true, // 라이브러리 검사 건너뜀
-    "esModuleInterop": true, // ES 모듈 호환성
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
     "outDir": "dist",
-    "allowSyntheticDefaultImports": true, // 기본값 import 허용
-    "strict": true, // 엄격한 타입 검사
-    "forceConsistentCasingInFileNames": true, // 파일 이름 대소문자 일관성 강제
-    "moduleResolution": "Node", // 모듈 해석 방식
-    "resolveJsonModule": true, // JSON 모듈 해석 허용
-    "isolatedModules": true, // 개별 모듈로 처리
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "emitDeclarationOnly": true,
-    "noEmit": false, // 컴파일 시 파일 생성 안 함
-    "jsx": "react-jsx", // React JSX 사용
-    "baseUrl": ".", // 상대 경로의 기준 디렉토리
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
@@ -28,13 +28,12 @@
     "composite": true,
     "allowImportingTsExtensions": true,
     "noFallthroughCasesInSwitch": true,
-    // TypeScript가 .d.ts 타입 선언 파일을 생성하도록 함
-    //  .d.ts 파일에 대한 소스 맵을 생성하도록 함
+
     "declarationMap": true,
-    // 컴파일된 JavaScript 파일에 대한 소스 맵을 생성하도록 함
+
     "sourceMap": true,
     "types": ["vite-plugin-svgr/client"]
   },
-  "include": ["src", "vite.config.ts"], // 포함할 파일
-  "exclude": ["node_modules"] // 제외할 파일
+  "include": ["src", "vite.config.ts"],
+  "exclude": ["node_modules"]
 }
