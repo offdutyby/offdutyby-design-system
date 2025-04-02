@@ -8,8 +8,12 @@ import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Input from ".";
 
+// describe는 해당 컴포넌트의 테스트를 그룹화 시켜 테스트를 실행시키는 역할
 describe("Input Component", () => {
+  // beforeEach는 본격적인 테스트 실행 전, 작업을 실행
   beforeEach(() => {
+    // 이전 테스트에서 DOM에 마운트된 컴포넌트들을 제거하는 역할
+    // 메모리 누수 방지, 깨끗한 상태에서 테스트 진행, 이전 테스트의 부작용이 현재 테스트에 영향 X
     cleanup();
   });
 
