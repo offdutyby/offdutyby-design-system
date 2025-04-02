@@ -58,6 +58,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         disabled={isDisabledOrLoading}
         aria-disabled={isDisabledOrLoading}
+        data-testid={rest.id}
         style={{ width, ...style }}
         type={htmlType}
         ref={ref}
