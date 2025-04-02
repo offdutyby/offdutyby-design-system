@@ -20,6 +20,7 @@ export default defineConfig({
       include: ["src/assets/icon/**/*.svg"],
     }),
   ],
+
   css: {
     preprocessorOptions: {
       scss: {

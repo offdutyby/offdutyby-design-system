@@ -19,6 +19,7 @@ interface InputProps extends InputElementProps {
    */
   description?: string;
   errorMessage?: string;
+  required?: boolean;
 }
 
 /**
@@ -29,7 +30,7 @@ interface InputProps extends InputElementProps {
  */
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ isVisible = true, ...rest }, ref) => {
+  ({ isVisible = true, required = false, ...rest }, ref) => {
     const {
       label,
       placeholder,
@@ -49,10 +50,17 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className={container}>
-        {label && <label className={labelText}>{label}</label>}
+        {label && (
+          <label className={labelText} htmlFor={rest.id}>
+            {label}
+          </label>
+        )}
         <input
           className={baseInputClassName}
           placeholder={placeholder}
+          data-testid={rest.id}
+          aria-invalid
+          required={required}
           {...rest}
           ref={ref}
         />
