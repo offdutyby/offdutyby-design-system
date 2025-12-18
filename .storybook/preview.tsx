@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react";
 import SnackbarProvider from "../src/components/atoms/SnackBar/index";
+import FormWrapper from "../src/hooks/FormWrapper";
 import React from "react";
 
 const preview: Preview = {
@@ -14,7 +15,9 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <SnackbarProvider>
-        <Story />
+        <FormWrapper defaultValues="">
+          <Story />
+        </FormWrapper>
       </SnackbarProvider>
     ),
   ],

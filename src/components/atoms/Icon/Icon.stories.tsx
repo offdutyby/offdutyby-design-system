@@ -28,9 +28,12 @@ Logo.decorators = [
   (Story) => (
     <div
       style={{
-        width: "100px",
-        height: "100px",
-        backgroundColor: "whitesmoke",
+        width: "500px",
+        height: "500px",
+        backgroundColor: "beige",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Story />

@@ -1,4 +1,3 @@
-// SnackbarContext.ts
 import React from "react";
 
 export type SnackbarType = "default" | "success" | "error" | "info" | "warning";
@@ -15,7 +14,6 @@ export interface SnackbarContextType {
   closeSnackbar: (id: string) => void;
 }
 
-// 스낵바 컨텍스트 생성
 export const SnackbarContext = React.createContext<SnackbarContextType | null>(
   null
 );

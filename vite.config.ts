@@ -5,6 +5,7 @@ import dts from "vite-plugin-dts";
 import path from "path";
 import libCss from "vite-plugin-libcss";
 import createSvgSpritePlugin from "vite-plugin-svg-sprite";
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   plugins: [
@@ -13,11 +14,13 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
     libCss(),
+    svgr(),
     createSvgSpritePlugin({
       symbolId: "icon-[name]",
       include: ["src/assets/icon/**/*.svg"],
     }),
   ],
+
   css: {
     preprocessorOptions: {
       scss: {
@@ -38,32 +41,24 @@ export default defineConfig({
   },
   build: {
     lib: {
-      // entry: "src/main.tsx", // 라이브러리의 진입점 파일
-      // name: "OffDesignSystem", // 라이브러리의 이름
-      // fileName: (format) => `off-design-system.${format}.js`, // 출력 파일 이름 형식
       entry: path.resolve(__dirname, "src/components/index.ts"),
       name: "OffDesignSystem",
       formats: ["es", "cjs"],
       fileName: (format) => `index.${format === "es" ? "esm" : format}.js`,
     },
     rollupOptions: {
-      external: [
-        "react",
-        "react-dom",
-        "react/jsx-runtime",
-        /^react-/, // react로 시작하는 모든 패키지
-      ],
+      external: ["react", "react-dom", "react/jsx-runtime", /^react-/],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "jsxRuntime",
         },
-        preserveModules: false, // 모듈 구조 보존하지 않음
-        manualChunks: undefined, // 수동 청크 비활성화
+        preserveModules: false,
+        manualChunks: undefined,
       },
     },
-    sourcemap: true, // 소스맵 생성
-    minify: "terser", // 코드 최소화
+    sourcemap: true,
+    minify: "terser",
   },
 });

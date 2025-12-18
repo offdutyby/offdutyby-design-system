@@ -3,7 +3,7 @@ export { default as Input } from "./atoms/Input";
 export { default as AccountInput } from "./atoms/AccountInput";
 export { default as CardHeader } from "./atoms/CardHeader";
 export { default as Chips } from "./atoms/Chips";
-export { default as ContentsInput } from "./atoms/ContentsInput";
+export { default as CurrencyInput } from "./atoms/CurrencyInput";
 export { default as Divider } from "./atoms/Divider";
 export { default as Icon } from "./atoms/Icon";
 export { default as ListItem } from "./atoms/ListItem";

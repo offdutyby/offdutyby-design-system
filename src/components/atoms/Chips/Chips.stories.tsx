@@ -43,7 +43,7 @@ OutlineGray.decorators = [
         padding="8px 12px"
         outlineGray
         prefix={
-          <Icon name="illustration_icon-calculate" width="22px" height="22px" />
+          <Icon name="illustration_icon-calculate" width="20px" height="20px" />
         }
         suffix={<Icon name="app-cancel_20" width="14px" height="14px" />}
       >

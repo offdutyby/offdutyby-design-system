@@ -6,10 +6,11 @@
 }
 
 .top {
+  position: relative;
   padding: 20px 0 16px 20px;
   border: 2px solid var(--stroke-primary);
   border-radius: 16px;
-  position: relative;
+
   .icon {
     position: absolute;
     top: 50%;
@@ -23,7 +24,7 @@
     @include label-small-medium;
   }
 
-  input {
+  .input {
     width: 100%;
     border: none;
     outline: none;

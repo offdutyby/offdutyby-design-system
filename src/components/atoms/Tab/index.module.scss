@@ -10,8 +10,8 @@
   @include body-large-medium;
 
   &.selected {
-    color: var(--text-primary);
     border-bottom: 2px solid var(--text-primary);
+    color: var(--text-primary);
     opacity: 1;
   }
 
